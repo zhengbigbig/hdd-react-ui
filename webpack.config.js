@@ -7,7 +7,7 @@ module.exports = {
         extensions: ['.ts', '.tsx', '.js', '.jsx'],
     },
     output: {
-        path: path.resolve(__dirname, 'dist/lib'),
+        path: path.resolve(__dirname, 'dist/lib'), //兼容不同操作系统的路径处理
         library: 'FUI',
         libraryTarget: 'umd',
     },
@@ -24,7 +24,7 @@ module.exports = {
             {
                 test: /\.scss$/,
                 use: ['style-loader', 'css-loader', 'sass-loader']
-            }
+            },
             {
                 test: /\.less$/,
                 use: ['style-loader', 'css-loader', 'less-loader']
