@@ -70,7 +70,8 @@ workflows:    #让circle ci 知道工作流程 运行顺序
         requires:
         - build
         filters:
-          tags:
-            only: /^v[0-9]+(\.[0-9]+)*/
+#          tags:
+#            only: /^v[0-9]+(\.[0-9]+)*/
           branches:
-            ignore: /.*/
+            only: publish
+#            ignore: /.*/
