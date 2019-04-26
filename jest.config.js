@@ -3,8 +3,8 @@
 module.exports = {
     verbose: true,
     clearMocks: false,
-    collectCoverage: false,
-    reporters: ["default"],
+    collectCoverage: true,  //是否收集测试覆盖率
+    reporters: ["default", /*"jest-junit"*/],  //添加jest-junit分析报表
     moduleFileExtensions: ['js', 'jsx', 'ts', 'tsx'],
     moduleDirectories: ['node_modules'],
     globals: {
