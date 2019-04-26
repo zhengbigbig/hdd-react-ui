@@ -11,7 +11,7 @@ jobs:
     - checkout
     - restore_cache:
         keys:
-        - v2-dependencies-{{ checksum "package.json" }}
+        - v2-dependencies-{{ checksum "package.json" }}  #md5将package.json作为key 创建到缓存并将node_modules缓存 形成快照
     - run: yarn install
     - save_cache:
         paths:
