@@ -1,6 +1,6 @@
 {
-  "name": "fui",
-  "version": "1.0.0",
+  "name": "hdd-ui888",
+  "version": "0.0.1",
   "description": "",
   "main": "dist/lib/index",
   "types": "dist/lib/index",
@@ -54,5 +54,6 @@
   "dependencies": {
     "react": "^16.8.4",
     "react-dom": "^16.8.4"
-  }
+  },
+  "files": ["/dist"]
 }

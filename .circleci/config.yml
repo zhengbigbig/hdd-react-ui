@@ -54,7 +54,7 @@ jobs:
 
 
 
-workflows:
+workflows:    #让circle ci 知道工作流程 运行顺序
   version: 2
   build_accept_deploy:
     jobs:
