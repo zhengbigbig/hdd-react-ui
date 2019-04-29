@@ -23,7 +23,6 @@
     top: 100px;
     width: auto;
     margin: 0 auto;
-    padding-bottom: 24px;
     background: #fff;
     border-radius: 4px;
     &-content {
@@ -78,6 +77,12 @@
         border-top: 1px solid #e8e8e8;
         border-radius: 0 0 4px 4px;
       }
+    }
+    &.zoom-enter,
+    &.zoom-appear,
+    &.zoom-leave
+    {
+      animation-duration: @animation-duration-slow;
     }
   }
 
