@@ -1,21 +1,24 @@
 import React from 'react';
 import './importIcons';
 import './icon.less';
-import classes from '../helpers/classes';
+import {scopedClassMaker} from '../helpers/classes';
+
+const addPrefix = scopedClassMaker('hdd-icon');
+const ap = addPrefix;
 
 interface IconProps extends React.SVGAttributes<SVGElement> {
-    name: string;
+  name: string;
 }
 
 const Icon: React.FunctionComponent<IconProps> =
-    ({className, name, ...restProps}) => {
-        return (
-            <svg className={classes('hdd-icon', className)}
-                 {...restProps}
-            >
-                <use xlinkHref={`#${name}`}/>
-            </svg>
-        );
-    };
+  ({className, name, ...restProps}) => {
+    return (
+      <svg className={ap('', {extra: className})}
+           {...restProps}
+      >
+        <use xlinkHref={`#${name}`}/>
+      </svg>
+    );
+  };
 
 export default Icon;

@@ -11,6 +11,8 @@ export default function () {
         <Button
           color="MediumAquamarine"
           size="small"
+          style={{color:'red'}}
+          className="hi"
           onClick={(e) => {onClick(e);}}
         >MediumAquamarine</Button>
         <Button

@@ -1,0 +1,21 @@
+@import "../helper";
+
+.hdd-layout {
+  display: flex;
+  flex-direction: column;
+  &-content {
+    flex-grow: 1;
+  }
+  & & {
+    flex-grow: 1;
+    flex-direction: row;
+  }
+  &.hdd-layout-has-sider {
+    flex-direction: row;
+    .hdd-layout {
+      flex-direction: column;
+    }
+  }
+}
+
+

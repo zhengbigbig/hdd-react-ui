@@ -1,28 +1,32 @@
-import React, {Fragment, ReactFragment, ReactNode} from 'react';
+import React, {CSSProperties, Fragment, ReactFragment, ReactNode} from 'react';
 import ReactDOM from 'react-dom';
-import handlePrefix from '../addPrefix';
+import {scopedClassMaker} from '../helpers/classes';
 import './dialog.less';
 import {Icon} from '../index';
+import {Button} from '../index';
 
-const addPrefix = handlePrefix('hdd-dialog');
+const addPrefix = scopedClassMaker('hdd-dialog');
 const ap = addPrefix;
 
 interface DialogProps {
   visible: boolean;
   width?: string | number;
-  title: ReactNode;
+  title?: ReactNode | string;
   footer?: null | ReactNode;
   okText?: ReactNode;
-  cancelText?: ReactNode | null;
+  cancelText?: ReactNode | undefined;
   onCancel: React.MouseEventHandler;
   onOk: React.MouseEventHandler;
   maskClosable?: boolean;
   zIndex?: number;
+  className?: string;
+  style?: CSSProperties;
+
 }
 
 const Dialog: React.FunctionComponent<DialogProps> =
   ({
-     width, visible, children, title,
+     className, width, visible, children, title,
      footer, okText, cancelText, onOk, onCancel, maskClosable, zIndex, ...restProps
    }) => {
     const dialogWidth =
@@ -45,13 +49,12 @@ const Dialog: React.FunctionComponent<DialogProps> =
         <div className={ap('mask')} onClick={onClickMaskClose}>
         </div>
         <div className={ap('wrap')}>
-          <div className={ap('')} style={{width: dialogWidth, zIndex}} {...restProps}>
+          <div className={ap('', {extra: className})} style={{width: dialogWidth, zIndex}} {...restProps}>
             <div className={ap('content')}>
               <button className={ap('close')} onClick={onClickClose}>
                   <span className={ap('close-x')}>
                     <Icon name="close"/>
                   </span>
-
               </button>
               <div className={ap('header')}>
                 {title}
@@ -63,10 +66,11 @@ const Dialog: React.FunctionComponent<DialogProps> =
                 <div className={ap('footer')}>
                   {footer ?
                     footer :
-                    <Fragment>
-                      {cancelText === null ? null : <button onClick={onClickClose}>{cancelText || '取消'}</button>}
-                      <button style={{marginLeft: '8px'}} onClick={onClickOpen}>{okText || '确认'}</button>
-                    </Fragment>
+                    <span>
+                      {cancelText === null ? null :
+                        <Button color="LightGrey" onClick={onClickClose}>{cancelText || '取消'}</Button>}
+                      <Button style={{marginLeft: '8px'}} onClick={onClickOpen}>{okText || '确认'}</Button>
+                    </span>
                   }
                 </div>
               }

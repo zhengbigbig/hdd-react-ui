@@ -1,11 +1,10 @@
 import React, {Fragment} from 'react';
 import './button.less';
-import handlePrefix from '../addPrefix';
-import classes from '../helpers/classes';
+import {scopedClassMaker} from "../helpers/classes";
 import {Icon} from '../index';
 // import less from 'less';
 
-const addPrefix = handlePrefix('hdd-button');
+const addPrefix = scopedClassMaker('hdd-button');
 const ap = addPrefix;
 
 interface ButtonProps extends React.HTMLAttributes<HTMLElement> {
@@ -20,7 +19,7 @@ interface ButtonProps extends React.HTMLAttributes<HTMLElement> {
 
 const Button: React.FunctionComponent<ButtonProps> =
   ({
-     children, color, size, disabled, shape, icon, href, target, ...restProps
+    className, children, color='Blue', size, disabled, shape, icon, href, target, ...restProps
    }) => {
     // console.log(less);
     // var stylesheetFile = './lib/style/color.less';
@@ -46,12 +45,11 @@ const Button: React.FunctionComponent<ButtonProps> =
           <a href={href} target={target}>
             <button
               className={
-                classes(ap(''),
-                  ap(color || 'DodgerBlue'),
-                  ap(btnSize),
-                  disabled ? ap('disabled') : '',
-                  shape === 'circle' ? ap(shape) : '',
-                )}
+                ap(['',color || 'Blue',
+                  disabled ? 'disabled' : '',
+                  shape === 'circle' ? shape : '',
+                  btnSize
+                ],{extra:className})}
               {...restProps} disabled={disabled || false}>
               {icon ? <Icon name="qq"/> : null}
               {children}
@@ -60,14 +58,13 @@ const Button: React.FunctionComponent<ButtonProps> =
           :
           <button
             className={
-              classes(ap(''),
-                ap(color || 'DodgerBlue'),
-                ap(btnSize),
-                disabled ? ap('disabled') : '',
-                shape === 'circle' ? ap(shape) : '',
-              )}
+              ap(['',color || 'Blue',
+                disabled ? 'disabled' : '',
+                shape === 'circle' ? shape : '',
+                btnSize
+              ],{extra:className})}
             {...restProps} disabled={disabled || false}>
-            {icon ? <Icon name="qq"/> : null}
+            {icon ? <Icon name={icon}/> : null}
             {children}
           </button>
         }

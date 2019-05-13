@@ -1,2 +1,4 @@
 export {default as Icon} from './icon/icon';
-import './index.less'
+export {default as Button} from './button/button';
+export {default as Dialog} from './dialog/dialog';
+import './index.less';
