@@ -1,0 +1,44 @@
+@header: #7dbcea;
+@content: rgba(16, 142, 233, 1);
+@footer: #7dbcea;
+@sider:#9DEDEF;
+@height: 50px;
+.flexCenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.container {
+  height: 300px;
+  color: #fff;
+}
+
+.header {
+  background: @header;
+  height: @height;
+  &:extend(.flexCenter);
+}
+.content {
+  background: @content;
+  margin: 4px 0;
+  &:extend(.flexCenter);
+}
+.footer {
+  background: @footer;
+  height: @height;
+  &:extend(.flexCenter);
+}
+.sider {
+  background: @sider;
+  width: @height;
+  &:extend(.flexCenter);
+  &.x {
+    margin:4px 4px 4px 0;
+  }
+  &.y {
+    margin: 4px 0 4px 4px;
+  }
+  &.z {
+    margin: 0 4px 0 0;
+  }
+}

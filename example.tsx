@@ -5,18 +5,22 @@ import IconExample from './lib/icon/icon.example';
 import ButtonExample from './lib/button/button.example';
 import DialogExample from './lib/dialog/dialog.example';
 import LayoutExample from './lib/layout/layout.example';
+import {Layout, Content, Header, Footer, Sider} from './lib/index';
+import './example.less';
+const logo = require('./hddlogo.png')
 
 ReactDOM.render(
   <Router>
-    <div>
-      <header>
+    <Layout style={{border: '1px solid red'}}>
+      <Header style={{border: '1px solid red'}}>
         <div className="logo">
-          FUI
+          <img src={logo} alt=""/>
+          HDD
         </div>
 
-      </header>
-      <div>
-        <aside>
+      </Header>
+      <Layout style={{border: '1px solid red'}}>
+        <Sider style={{border: '1px solid red'}}>
           <h2>组件</h2>
           <ul>
             <li>
@@ -32,14 +36,15 @@ ReactDOM.render(
               <Link to="/layout">Layout</Link>
             </li>
           </ul>
-        </aside>
-        <main>
+        </Sider>
+        <Content style={{border: '1px solid red'}}>
           <Route path="/icon" component={IconExample}/>
           <Route path="/button" component={ButtonExample}/>
           <Route path="/dialog" component={DialogExample}/>
           <Route path="/layout" component={LayoutExample}/>
-        </main>
-      </div>
-    </div>
+        </Content>
+      </Layout>
+      <Footer style={{border: '1px solid red'}}>xxx</Footer>
+    </Layout>
   </Router>
   , document.querySelector('#root'));

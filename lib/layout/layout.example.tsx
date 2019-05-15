@@ -4,48 +4,49 @@ import Header from "./header";
 import Content from "./content";
 import Footer from "./footer";
 import Sider from "./sider";
+import './layout.example.less'
 
 export default function () {
   return (
     <div>
       <div>
         <h1>One</h1>
-        <Layout className="x" style={{color:'#fff'}}>
-          <Header style={{background:'#7dbcea'}}>header</Header>
-          <Content style={{background:'rgba(16, 142, 233, 1)'}}>content</Content>
-          <Footer style={{background:'#7dbcea'}}>footer</Footer>
+        <Layout className="container">
+          <Header className="header">header</Header>
+          <Content className="content">content</Content>
+          <Footer className="footer">footer</Footer>
         </Layout>
       </div>
       <div>
         <h1>Tow</h1>
-        <Layout style={{color:'#fff'}}>
-          <Header style={{background:'#7dbcea'}}>Header</Header>
+        <Layout className="container">
+          <Header className="header">Header</Header>
           <Layout>
-            <Sider style={{background:'#9DEDEF'}}>Sider</Sider>
-            <Content style={{background:'rgba(16, 142, 233, 1)'}}>Content</Content>
+            <Sider className="sider x">Sider</Sider>
+            <Content className="content">Content</Content>
           </Layout>
-          <Footer style={{background:'#7dbcea'}}>Footer</Footer>
+          <Footer className="footer">Footer</Footer>
         </Layout>
       </div>
       <div>
         <h1>Three</h1>
-        <Layout style={{color:'#fff'}}>
-          <Header style={{background:'#7dbcea'}}>Header</Header>
+        <Layout className="container">
+          <Header className="header">Header</Header>
           <Layout>
-            <Content style={{background:'rgba(16, 142, 233, 1)'}}>Content</Content>
-            <Sider style={{background:'#9DEDEF'}}>Sider</Sider>
+            <Content className="content">Content</Content>
+            <Sider className="sider y">Sider</Sider>
           </Layout>
-          <Footer style={{background:'#7dbcea'}}>Footer</Footer>
+          <Footer className="footer">Footer</Footer>
         </Layout>
       </div>
       <div>
         <h1>Four</h1>
-        <Layout style={{color:'#fff'}}>
-          <Sider style={{background:'#9DEDEF'}}>Sider</Sider>
+        <Layout className="container">
+          <Sider className="sider z">Sider</Sider>
           <Layout>
-            <Header style={{background:'#7dbcea'}}>Header</Header>
-            <Content style={{background:'rgba(16, 142, 233, 1)'}}>Content</Content>
-            <Footer style={{background:'#7dbcea'}}>Footer</Footer>
+            <Header className="header">Header</Header>
+            <Content className="content">Content</Content>
+            <Footer className="footer">Footer</Footer>
           </Layout>
         </Layout>
       </div>

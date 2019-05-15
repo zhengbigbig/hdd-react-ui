@@ -14,14 +14,18 @@ const Layout: React.FunctionComponent<LayoutProps> =
   ({
      className, children, ...restProps
    }) => {
-    const childrens = children as Array<ReactElement>
+    const childrens = children as Array<ReactElement>;
     const hasSider = 'length' in childrens &&
       childrens.reduce((result, node) => result || node.type === Sider, false);
     return (
-      <div className={ap({'':true,'has-sider':hasSider},{extra: className})}
+      <div className={ap({'': true, 'has-sider': hasSider}, {extra: className})}
            {...restProps}>
         {children}
       </div>
     );
   };
 export default Layout;
+export {default as Header} from './header';
+export {default as Content} from './content';
+export {default as Footer} from './footer';
+export {default as Sider} from './sider';
