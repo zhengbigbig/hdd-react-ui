@@ -1,3 +1,4 @@
+
 * {
   margin: 0;
   padding: 0;
@@ -10,4 +11,128 @@
 
 h1, h2, h3, h4, h5, h6 {
   font-weight: normal;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+@padding: 16px;
+.pageWrapper {
+  overflow-x: hidden;
+  color: #314659;
+  font-size: 14px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Helvetica Neue', Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+  line-height: 1.5;
+  width: 100vw;
+  .headerWrapper {
+    width: 100%;
+    position: relative;
+    z-index: 10;
+    max-width: 100%;
+    background: #fff;
+    -webkit-box-shadow: 0 2px 8px #f0f1f2;
+    box-shadow: 0 2px 8px #f0f1f2;
+    height: 64px;
+    display: flex;
+    .logo {
+      @media (max-width: 991px) {
+        width: 20%;
+      }
+      @media (min-width: 992px) {
+        width: 25%;
+      }
+      @media (min-width: 1200px) {
+        width: 20%;
+      }
+      display: flex;
+      padding: 8px @padding;
+      div:nth-child(2) {
+        margin: 11px 0 0 10px;
+      }
+    }
+    .headerContent {
+      flex-grow: 1;
+    }
+  }
+  .layoutWrapper {
+    width: 100%;
+    margin: 40px 0 0;
+    height: calc(100vh - 104px);
+    overflow: hidden;
+    .mainWrapper {
+      height: calc(100vh - 104px);
+      width: 100%;
+      overflow: hidden;
+      .mainInner {
+        height: calc(100vh - 104px);
+        overflow: auto;
+        > .contentWrapper {
+          padding: 0 40px;
+          height: 100vh;
+        }
+        > .footerWrapper {
+          background-color: #000;
+          color: rgba(255, 255, 255, 0.4);
+          font-size: 18px;
+          height: 64px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+      }
+
+    }
+    .siderWrapper {
+      @media (max-width: 991px) {
+        width: 20%;
+      }
+      @media (min-width: 992px) {
+        width: 25%;
+      }
+      @media (min-width: 1200px) {
+        width: 20%;
+      }
+      border-right: 1px solid #ebedf0;
+      height: calc(100vh - 104px);
+      overflow-x: hidden;
+      overflow-y: auto;
+      h2 {
+        padding: 10px @padding;
+        font-size: 18px;
+      }
+      ul {
+        min-width: 12em;
+
+        li {
+          overflow: hidden;
+          font-size: 14px;
+          text-overflow: ellipsis;
+          color: #314659;
+
+          &:hover a {
+            color: #1890ff;
+          }
+          a {
+            padding-left: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            &.active {
+              background-color: #e6f7ff;
+              color: #1890ff;
+              border-right: 3px solid #1890ff;
+            }
+          }
+
+        }
+      }
+    }
+
+  }
+
 }

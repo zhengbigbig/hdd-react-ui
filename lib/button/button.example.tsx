@@ -1,4 +1,4 @@
-import React, {Fragment} from 'react';
+import React from 'react';
 import Button from './button';
 
 export default function () {
@@ -7,7 +7,7 @@ export default function () {
 
   };
   return (
-      <Fragment>
+      <div style={{display:'flex',flexWrap:'wrap'}}>
         <Button
           color="MediumAquamarine"
           size="small"
@@ -121,6 +121,6 @@ export default function () {
           onClick={(e) => {onClick(e);}}
         />
 
-      </Fragment>
+      </div>
   );
 }
