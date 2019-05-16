@@ -21,6 +21,57 @@ a {
   text-decoration: none;
 }
 
+pre {
+  font-family: Menlo,"Fira Code Medium", Consolas, monospace;
+  padding: 8px 8px 8px 26px;
+}
+
+.templateCode {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin: 0 0 16px;
+  border: 1px solid #ebedf0;
+  border-radius: 2px;
+  > .templateDemo {
+    padding: 42px 24px 50px;
+    color: rgba(0,0,0,0.65);
+    border-bottom: 1px solid #ebedf0;
+  }
+  > .templateText {
+    position: relative;
+    padding: 18px 24px 12px;
+    border-bottom: 1px dashed #ebedf0;
+    > .templateTitle {
+      position: absolute;
+      top: -14px;
+      margin-left: 16px;
+      padding: 1px 8px;
+      color: #777;
+      background: #fff;
+      border-radius: 2px 2px 0 0;
+      -webkit-transition: background-color .4s;
+      transition: background-color .4s;
+      font-weight: bolder;
+    }
+  }
+  > .templateIcons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+  }
+  > .templatePre {
+    border-top: 1px dashed #ebedf0;
+    overflow: hidden;
+    width: 100%;
+    > .templatePreContent {
+      width: 100%;
+      overflow-x: auto;
+      overflow-y: hidden;
+    }
+  }
+}
 @padding: 16px;
 .pageWrapper {
   overflow-x: hidden;
