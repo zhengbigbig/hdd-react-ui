@@ -15,9 +15,9 @@ const Content: React.FunctionComponent<ContentProps> =
      className, children, ...restProps
    }) => {
     return (
-      <div className={ap('content', {extra: className})} {...restProps}>
+      <main className={ap('content', {extra: className})} {...restProps}>
         {children}
-      </div>
+      </main>
     );
   };
 

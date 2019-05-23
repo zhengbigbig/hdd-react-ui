@@ -15,9 +15,9 @@ const Sider: React.FunctionComponent<AsideProps> =
      className, children, ...restProps
    }) => {
     return (
-      <div className={ap('sider', {extra: className})} {...restProps}>
+      <aside className={ap('sider', {extra: className})} {...restProps}>
         {children}
-      </div>
+      </aside>
     );
   };
 

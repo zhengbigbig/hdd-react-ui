@@ -14,9 +14,9 @@ const Header: React.FunctionComponent<HeaderProps> =
      className,children,...restProps
    }) => {
     return (
-      <div className={ap('header',{extra:className})} {...restProps}>
+      <header className={ap('header',{extra:className})} {...restProps}>
         {children}
-      </div>
+      </header>
     );
   };
 export default Header;

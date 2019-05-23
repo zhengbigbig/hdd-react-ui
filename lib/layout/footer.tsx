@@ -15,9 +15,9 @@ const Footer: React.FunctionComponent<FooterProps> =
      className, children, ...restProps
    }) => {
     return (
-      <div className={ap('footer',{extra:className})} {...restProps}>
+      <footer className={ap('footer',{extra:className})} {...restProps}>
         {children}
-      </div>
+      </footer>
     );
   };
 

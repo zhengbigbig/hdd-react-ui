@@ -5,6 +5,8 @@ import IconDemo from './lib/icon/icon.demo';
 import ButtonExample from './lib/button/button.example';
 import DialogExample from './lib/dialog/dialog.example';
 import LayoutExample from './lib/layout/layout.example';
+import FormExample from './lib/form/form.example';
+import AffixExample from './lib/affix/affix.example';
 import {Layout, Content, Header, Footer, Sider} from './lib/index';
 import './example.less';
 
@@ -37,15 +39,23 @@ ReactDOM.render(
             <li>
               <NavLink to="/layout">Layout</NavLink>
             </li>
+            <li>
+              <NavLink to="/form">Form</NavLink>
+            </li>
+            <li>
+              <NavLink to="/affix">Affix</NavLink>
+            </li>
           </ul>
         </Sider>
         <Layout className="mainWrapper">
-          <div className="mainInner">
+          <div className="mainInner" style={{border:'1px solid red'}}>
             <Content className="contentWrapper">
               <Route path="/icon" component={IconDemo}/>
               <Route path="/button" component={ButtonExample}/>
               <Route path="/dialog" component={DialogExample}/>
               <Route path="/layout" component={LayoutExample}/>
+              <Route path="/form" component={FormExample}/>
+              <Route path="/affix" component={AffixExample}/>
             </Content>
             <Footer className="footerWrapper">&copy; zhengbigbig</Footer>
           </div>

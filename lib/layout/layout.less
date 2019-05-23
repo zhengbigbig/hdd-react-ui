@@ -1,5 +1,7 @@
 @import "../helper";
 
+
+
 .hdd-layout {
   display: flex;
   flex-direction: column;
@@ -10,11 +12,12 @@
     flex-grow: 1;
     flex-direction: row;
   }
-  &.hdd-layout-has-sider {
-    flex-direction: row;
+  .hdd-layout.hdd-layout-has-sider {
+    flex-direction: row !important;
     .hdd-layout {
       flex-direction: column;
     }
+
   }
 }
 
