@@ -8,6 +8,7 @@ import LayoutExample from './lib/layout/layout.example';
 import FormExample from './lib/form/form.example';
 import AffixExample from './lib/affix/affix.example';
 import {Layout, Content, Header, Footer, Sider} from './lib/index';
+
 import './example.less';
 
 const logo = require('./hddlogo.png');

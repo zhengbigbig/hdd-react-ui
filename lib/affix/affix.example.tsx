@@ -10,7 +10,7 @@ const AffixExample: React.FunctionComponent = () => {
         <div style={{width:'100%',height:'100%',overflow:'auto'}}
              ref={container}>
           <div style={{width:'100%',height:'120vh'}}>
-            <div style={{background:'red',width:'100px',height:'100px'}}></div>
+            <div style={{background:'red',width:'100px',height:'500px'}}></div>
             <Affix
               offsetBottom={20}
               offsetTop={20}
@@ -18,6 +18,7 @@ const AffixExample: React.FunctionComponent = () => {
             >
               <Button size="small">Affix</Button>
             </Affix>
+            <div style={{background:'red',width:'100px',height:'100px'}}></div>
           </div>
         </div>
     </div>

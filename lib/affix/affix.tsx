@@ -17,12 +17,19 @@ const Affix: React.FunctionComponent<AffixProps> =
   ({
      className, style, children, offsetTop, offsetBottom, target, ...restProps
    }) => {
-    const [hasNearTop, setNearTop] = useState(false);
-    const [hasNearBottom, setNearBottom] = useState(false);
-    const [topOffset, setTopOffset] = useState(0);
-    const [elemOffset, setElemOffset] = useState({});
+
+    const elemOffset = useRef({top: 0});
+    const topOffset = useRef(0);
+
+    const hasNearTop = useRef(false);
+    const hasNearBottom = useRef(false);
+
+    const [styles, setStyles] = useState({});
+    const [classNames, setClassNames] = useState('');
+
     const affaixDom = useRef<HTMLDivElement>(null);
     let targetNode: Window | HTMLElement | null;
+
     //判断是否设置了向上固定和向下固定
     const offsetMode = {
       top: false,
@@ -36,56 +43,64 @@ const Affix: React.FunctionComponent<AffixProps> =
       offsetMode.top = typeof offsetTop === 'number';
       offsetMode.bottom = typeof offsetBottom === 'number';
     }
-
     const handleScroll = () => {
-      console.log(elemOffset);
-      // if (affaixDom.current !== null) {
-      //   const scrollTop = getScroll(targetNode, true);
-      //   if (scrollTop > ((elemOffset.top as number) - (offsetTop as number) && offsetMode.top)) {
-      //     setNearTop(true);
-      //   } else {
-      //     setNearTop(false);
-      //   }
-      //   if ((window.innerHeight - elemOffset.top) <= (offsetBottom || 0)) {
-      //     setNearBottom(true);
-      //   } else {
-      //     setNearBottom(false);
-      //   }
-      // }
+      const targetInnerHeight =
+        (targetNode as Window).innerHeight || (targetNode as HTMLElement).clientHeight;
+      const targetRect = getTargetRect(targetNode);
+      const targetBottomOffet = targetNode === window ? 0 : (window.innerHeight - targetRect.bottom);
+      if (affaixDom.current !== null) {
+        const scrollTop = getScroll(targetNode, true);
+        // console.log(scrollTop, elemOffset.current.top - (offsetTop as number));  //{}
+        if (scrollTop > (elemOffset.current.top - (offsetTop as number))) {
+          hasNearTop.current = true;
+          console.log(1);
+        } else {
+          hasNearTop.current = false;
+        }
+        console.log(scrollTop,elemOffset.current.top + affaixDom.current.clientHeight +
+          (offsetBottom as number) - targetInnerHeight);
+        if (scrollTop <
+          elemOffset.current.top + affaixDom.current.clientHeight +
+          (offsetBottom as number) - targetInnerHeight) {
+          hasNearBottom.current = true;
+        } else {
+          hasNearBottom.current = false;
+        }
+      }
+      const newStyles = Object.assign({},
+        hasNearTop.current ? {top: `${ (topOffset.current) + (offsetTop as number)}px`} :
+          hasNearBottom.current  ? {bottom: `${targetBottomOffet + (offsetBottom as number)}px`} :
+            {}
+        , style);
+      setStyles(newStyles);
+      const newClassNames = hasNearTop.current || hasNearBottom.current ?
+        ap('', {extra: className}) : className;
+      if (newClassNames) {
+        setClassNames(newClassNames);
+      } else {
+        setClassNames('');
+      }
     };
     useEffect(() => {
       targetNode = target ? target && target() : window;
-      const targetOffset = getTargetRect(targetNode).top;
-      setTopOffset(targetOffset);
-      function x() {
-        if (affaixDom.current) {
-          const elemOffset = getOffset(affaixDom.current, targetNode);
-          console.log(elemOffset);
-          setElemOffset({...elemOffset});
-        }
+      if (affaixDom.current && targetNode) {
+        elemOffset.current = getOffset(affaixDom.current, targetNode);
       }
-      x()
-    }, []);
-    useEffect(() => {
+      topOffset.current = getTargetRect(targetNode).top;
       targetNode && targetNode.addEventListener('scroll', handleScroll, false);
       return () => {
         targetNode && targetNode.addEventListener('scroll', handleScroll, false);
       };
-    });
+    }, []);
 
-    const newClassName = hasNearTop || hasNearBottom ? ap('', {extra: className}) : className;
-    const topOrbottom = hasNearTop ? {top: `${ (topOffset) + (offsetTop as number)}px`} :
-      hasNearBottom ? {bottom: `${offsetBottom}px`} :
-        {};
-    const styles = Object.assign({}, topOrbottom, style);
+
     return (
       <div
-        className={newClassName}
+        className={classNames}
         ref={affaixDom}
         style={styles}
         {...restProps}
       >
-
         {children}
       </div>
     );
