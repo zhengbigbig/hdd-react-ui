@@ -50,15 +50,11 @@ const Affix: React.FunctionComponent<AffixProps> =
       const targetBottomOffet = targetNode === window ? 0 : (window.innerHeight - targetRect.bottom);
       if (affaixDom.current !== null) {
         const scrollTop = getScroll(targetNode, true);
-        // console.log(scrollTop, elemOffset.current.top - (offsetTop as number));  //{}
         if (scrollTop > (elemOffset.current.top - (offsetTop as number))) {
           hasNearTop.current = true;
-          console.log(1);
         } else {
           hasNearTop.current = false;
         }
-        console.log(scrollTop,elemOffset.current.top + affaixDom.current.clientHeight +
-          (offsetBottom as number) - targetInnerHeight);
         if (scrollTop <
           elemOffset.current.top + affaixDom.current.clientHeight +
           (offsetBottom as number) - targetInnerHeight) {
