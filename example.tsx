@@ -49,7 +49,7 @@ ReactDOM.render(
           </ul>
         </Sider>
         <Layout className="mainWrapper">
-          <div className="mainInner" style={{border:'1px solid red'}}>
+          <div className="mainInner">
             <Content className="contentWrapper">
               <Route path="/icon" component={IconDemo}/>
               <Route path="/button" component={ButtonExample}/>
