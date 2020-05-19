@@ -1357,7 +1357,7 @@
 
 "@types/jest@^25.2.2":
   version "25.2.2"
-  resolved "https://registry.npm.taobao.org/@types/jest/download/@types/jest-25.2.2.tgz#6a752e7a00f69c3e790ea00c345029d5cefa92bf"
+  resolved "https://registry.npm.taobao.org/@types/jest/download/@types/jest-25.2.2.tgz?cache=0&sync_timestamp=1589397479610&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40types%2Fjest%2Fdownload%2F%40types%2Fjest-25.2.2.tgz#6a752e7a00f69c3e790ea00c345029d5cefa92bf"
   integrity sha1-anUuegD2nD55DqAMNFAp1c76kr8=
   dependencies:
     jest-diff "^25.2.1"
@@ -7317,19 +7317,9 @@ react-router@5.2.0:
     tiny-invariant "^1.0.2"
     tiny-warning "^1.0.0"
 
-react-test-renderer@^16.0.0-0:
+react-test-renderer@^16.0.0-0, react-test-renderer@^16.13.1:
   version "16.13.1"
   resolved "https://registry.npm.taobao.org/react-test-renderer/download/react-test-renderer-16.13.1.tgz?cache=0&sync_timestamp=1588783163524&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Freact-test-renderer%2Fdownload%2Freact-test-renderer-16.13.1.tgz#de25ea358d9012606de51e012d9742e7f0deabc1"
-  integrity sha1-3iXqNY2QEmBt5R4BLZdC5/Deq8E=
-  dependencies:
-    object-assign "^4.1.1"
-    prop-types "^15.6.2"
-    react-is "^16.8.6"
-    scheduler "^0.19.1"
-
-react-test-renderer@^16.13.1:
-  version "16.13.1"
-  resolved "https://registry.npm.taobao.org/react-test-renderer/download/react-test-renderer-16.13.1.tgz#de25ea358d9012606de51e012d9742e7f0deabc1"
   integrity sha1-3iXqNY2QEmBt5R4BLZdC5/Deq8E=
   dependencies:
     object-assign "^4.1.1"
